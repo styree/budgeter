@@ -1,12 +1,11 @@
 var HTMLWebpackPlugin = require('webpack-html-plugin');
-var HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
-	template: __dirname + '/app/index.html',
-	filename: 'index.html',
-	inject: 'body'
-});
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-	entry: __dirname + '/app/index.js',
+	entry: [
+		__dirname + '/app/index.js',
+		__dirname + '/app/styles/core.scss',
+	],
 	module: {
 		loaders: [
 			{
@@ -19,11 +18,25 @@ module.exports = {
 				loader: "babel-loader",
 				test: /\.jsx?$/
 			},
+			{
+				test: /\.scss$/,
+				loader: ExtractTextPlugin.extract(['css-loader', 'sass-loader',])
+			}
 		]
 	},
 	output: {
 		filename: 'compiled.js',
 		path: __dirname + '/build'
 	},
-	plugins: [HTMLWebpackPluginConfig]
+	plugins: [
+		new HTMLWebpackPlugin({
+			template: __dirname + '/app/index.html',
+			filename: 'index.html',
+			inject: 'body'
+		}),
+		new ExtractTextPlugin({
+			filename: 'core.css',
+			allChunks: true,
+		})
+	]
 };

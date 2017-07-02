@@ -1,5 +1,6 @@
 import React from 'react';
 import Chip from 'material-ui/Chip';
+import InputComponent from '../InputComponent/InputComponent.jsx';
 
 export default class TagsComponent extends React.Component {
 	constructor (props) {
@@ -35,6 +36,7 @@ export default class TagsComponent extends React.Component {
 	render () {
 		return (
 			<div>
+				<InputComponent/>
 				{this.state.chipData.map(this.renderChip, this)}
 			</div>
 		);
