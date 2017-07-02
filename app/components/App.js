@@ -6,12 +6,12 @@ import AppBar from 'material-ui/AppBar';
 import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
 import DatePicker from 'material-ui/DatePicker';
 import InputComponent from './InputComponent/InputComponent.jsx';
+import TagsComponent from './TagsComponent/TagsComponent.jsx';
 
 
 injectTapEventPlugin();
 
 export default class App extends React.Component {
-
 	render () {
 		return (
 			<MuiThemeProvider>
@@ -35,6 +35,8 @@ export default class App extends React.Component {
 					</RadioButtonGroup>
 
 					<InputComponent/>
+
+					<TagsComponent/>
 
 					<RaisedButton label="Cool Button"/>
 				</div>
