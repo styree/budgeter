@@ -36,7 +36,7 @@ export default class TagsComponent extends React.Component {
 	render () {
 		return (
 			<div>
-				<InputComponent/>
+				<InputComponent placeholder="Add a tag"/>
 				{this.state.chipData.map(this.renderChip, this)}
 			</div>
 		);
