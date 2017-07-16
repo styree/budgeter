@@ -1,7 +1,7 @@
-import React from 'react'
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import CashFlowFormComponent from './CashFlowFormComponent'
-import AppBar from 'material-ui/AppBar'
+import React from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import CashFlowFormComponent from './CashFlowFormComponent';
+import AppBar from 'material-ui/AppBar';
 
 export default class App extends React.Component {
 	render () {
