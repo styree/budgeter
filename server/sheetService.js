@@ -2,14 +2,21 @@ const GoogleSpreadsheet = require('google-spreadsheet');
 const config = require('../config');
 const creds = require('../config/google-generated-creds.json');
 
-module.exports = () => {
-	const doc = new GoogleSpreadsheet(config.spreadsheetId);
+const doc = new GoogleSpreadsheet(config.spreadsheetId);
 
-	doc.useServiceAccountAuth(creds, error => {
-		if (error) throw error;
-		doc.getRows(1, (error, rows) => {
-			if (error) throw error;
-			console.log('rows', rows);
+const getRows = () => {
+	return new Promise((resolve, reject) => {
+		return doc.useServiceAccountAuth(creds, error => {
+			if (error) reject(error);
+			return doc.getRows(1, (error, rows) => {
+				if (error) throw error;
+				console.log('rows', rows);
+				resolve(rows);
+			});
 		});
 	});
+};
+
+module.exports = {
+	getRows: getRows
 };
