@@ -13,18 +13,34 @@ export default class CashFlowFormComponent extends React.Component {
 		super(props);
 		this.state = {
 			date: new Date(),
-			description: '',
 			amount: 0.00,
+			description: '',
+			location: '',
 			type: 'out',
-			tags: []
+			tags: [],
+			recurring: false,
+			recurringType: null,
+			need: false,
+			note: '',
+			source: 'CC1'
 		};
+
+		this.handleAmountChange = this.handleAmountChange.bind(this);
+	}
+
+	handleAmountChange ({target}) {
+		this.setState({amount: target.value});
 	}
 
 	render () {
 		return (
 			<div className="cashflow-form">
 				<h2>Amount</h2>
-				<InputComponent placeholder="$0.00" value={this.state.amount}/>
+				<InputComponent
+					placeholder="$0.00"
+					value={this.state.amount}
+					type="number"
+					onChange={this.handleAmountChange}/>
 
 				<h2>Description</h2>
 				<InputComponent placeholder="Description" value={this.state.description}/>

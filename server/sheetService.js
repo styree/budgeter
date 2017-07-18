@@ -9,8 +9,7 @@ const getRows = () => {
 		return doc.useServiceAccountAuth(creds, error => {
 			if (error) reject(error);
 			return doc.getRows(1, (error, rows) => {
-				if (error) throw error;
-				console.log('rows', rows);
+				if (error) reject(error);
 				resolve(rows);
 			});
 		});

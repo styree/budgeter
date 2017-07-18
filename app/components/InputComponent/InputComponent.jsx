@@ -8,7 +8,7 @@ const style = {
 	borderRadius: 5,
 	border: 'none',
 	fontSize: 20,
-	width: '100%',
+	width: '100%'
 };
 
 export default class InputComponent extends React.Component {
@@ -17,13 +17,15 @@ export default class InputComponent extends React.Component {
 	}
 
 	render () {
+		const {type} = this.props;
 		return (
 			<div>
 				<Paper zDepth={1}>
 					<input
-						type="text"
+						type={type || 'text'}
 						placeholder={this.props.placeholder}
 						style={style}
+						{...this.props}
 					/>
 				</Paper>
 			</div>
