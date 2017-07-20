@@ -25,11 +25,18 @@ export default class CashFlowFormComponent extends React.Component {
 			source: 'CC1'
 		};
 
-		this.handleAmountChange = this.handleAmountChange.bind(this);
+		this.handleFormChange = this.handleFormChange.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	handleAmountChange ({target}) {
-		this.setState({amount: target.value});
+	handleFormChange ({ target }) {
+		console.log(target.name);
+		this.setState({ [target.name]: target.value });
+		console.log(this.state);
+	}
+
+	handleSubmit () {
+		console.log('submitted', this.state);
 	}
 
 	render () {
@@ -40,19 +47,37 @@ export default class CashFlowFormComponent extends React.Component {
 					placeholder="$0.00"
 					value={this.state.amount}
 					type="number"
-					onChange={this.handleAmountChange}/>
+					name="amount"
+					onChange={this.handleFormChange}/>
 
 				<h2>Description</h2>
-				<InputComponent placeholder="Description" value={this.state.description}/>
+				<InputComponent
+					placeholder="Description"
+					value={this.state.description}
+					name="description"
+					onChange={this.handleFormChange}/>
+
+				<h2>Location</h2>
+				<InputComponent
+					placeholder="Location"
+					value={this.state.location}
+					name="location"
+					onChange={this.handleFormChange}/>
 
 				<h2>Date</h2>
 				<DatePicker
 					hintText="Portrait Dialog"
 					defaultDate={new Date()}
+					name="date"
 				/>
 
 				<h2>Type</h2>
-				<RadioButtonGroup name="type" labelPosition="right" defaultSelected="out">
+				<RadioButtonGroup
+					name="type"
+					labelPosition="right"
+					defaultSelected="out"
+					value={this.state.type}
+					onChange={this.handleFormChange}>
 					<RadioButton
 						value="out"
 						label="Spending"
@@ -66,7 +91,7 @@ export default class CashFlowFormComponent extends React.Component {
 				<h2>Tags</h2>
 				<TagsComponent/>
 
-				<RaisedButton label="Log It"/>
+				<RaisedButton label="Log It" onTouchTap={this.handleSubmit}/>
 			</div>
 		);
 	}
