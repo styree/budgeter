@@ -5,6 +5,7 @@ import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
 import DatePicker from 'material-ui/DatePicker';
 import InputComponent from '../InputComponent';
 import TagsComponent from '../TagsComponent';
+import apiService from '../../services';
 
 injectTapEventPlugin();
 
@@ -30,13 +31,13 @@ export default class CashFlowFormComponent extends React.Component {
 	}
 
 	handleFormChange ({ target }) {
-		console.log(target.name);
 		this.setState({ [target.name]: target.value });
 		console.log(this.state);
 	}
 
 	handleSubmit () {
 		console.log('submitted', this.state);
+		apiService.getData();
 	}
 
 	render () {
