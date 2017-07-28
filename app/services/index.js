@@ -22,11 +22,11 @@ const postData = (data) => {
 		},
 		body: JSON.stringify(data)
 	})
-	.then(resp => {
-		if (resp.status >= 400) {
-			throw new Error('Bad response from server');
-		}
-	});
+		.then(resp => {
+			if (resp.status >= 400) {
+				throw new Error('Bad response from server');
+			}
+		});
 };
 
 export default {

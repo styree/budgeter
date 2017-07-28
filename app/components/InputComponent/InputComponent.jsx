@@ -17,7 +17,7 @@ export default class InputComponent extends React.Component {
 	}
 
 	render () {
-		const {type} = this.props;
+		const { type } = this.props;
 		return (
 			<div>
 				<Paper zDepth={1}>
