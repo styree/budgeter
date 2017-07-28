@@ -1,10 +1,11 @@
 var HTMLWebpackPlugin = require('webpack-html-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var path = require('path');
 
 module.exports = {
 	entry: [
-		__dirname + '/app/index.js',
-		__dirname + '/app/styles/core.scss'
+		path.join(__dirname, '/app/index.js'),
+		path.join(__dirname, '/app/styles/core.scss')
 	],
 	module: {
 		loaders: [
@@ -26,11 +27,11 @@ module.exports = {
 	},
 	output: {
 		filename: 'compiled.js',
-		path: __dirname + '/build'
+		path: path.join(__dirname, '/build')
 	},
 	plugins: [
 		new HTMLWebpackPlugin({
-			template: __dirname + '/app/index.html',
+			template: path.join(__dirname, '/app/index.html'),
 			filename: 'index.html',
 			inject: 'body'
 		}),

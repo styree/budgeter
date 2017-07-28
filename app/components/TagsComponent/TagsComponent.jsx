@@ -10,7 +10,7 @@ export default class TagsComponent extends React.Component {
 				{ key: 0, label: 'Bills' },
 				{ key: 1, label: 'Food' },
 				{ key: 2, label: 'Rent' },
-				{ key: 3, label: 'Misc' },
+				{ key: 3, label: 'Misc' }
 			]
 		};
 	}

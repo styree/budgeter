@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; // eslint-disable-line no-unused-vars
 import ReactDOM from 'react-dom';
 import App from './components/App';
 // import { Provider } from 'react-redux';
@@ -8,6 +8,6 @@ import App from './components/App';
 // let store = createStore(storeReducer);
 
 ReactDOM.render(
-		<App />,
+	<App/>,
 	document.getElementById('root')
 );

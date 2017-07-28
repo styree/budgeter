@@ -12,10 +12,6 @@ const style = {
 };
 
 export default class InputComponent extends React.Component {
-	constructor (props) {
-		super(props);
-	}
-
 	render () {
 		const { type } = this.props;
 		return (
