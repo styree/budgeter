@@ -16,6 +16,19 @@ const getRows = () => {
 	});
 };
 
+const addRow = (data) => {
+	return new Promise((resolve, reject) => {
+		return doc.useServiceAccountAuth(creds, error => {
+			if (error) reject(error);
+			return doc.addRow(1, data, (error, rows) => {
+				if (error) reject(error);
+				resolve(rows);
+			});
+		});
+	});
+};
+
 module.exports = {
-	getRows: getRows
+	getRows: getRows,
+	addRow: addRow
 };

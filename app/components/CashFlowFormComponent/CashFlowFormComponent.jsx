@@ -37,7 +37,7 @@ export default class CashFlowFormComponent extends React.Component {
 
 	handleSubmit () {
 		console.log('submitted', this.state);
-		apiService.getData();
+		apiService.postData(this.state);
 	}
 
 	render () {
@@ -70,6 +70,7 @@ export default class CashFlowFormComponent extends React.Component {
 					hintText="Portrait Dialog"
 					defaultDate={new Date()}
 					name="date"
+					value={this.state.date}
 				/>
 
 				<h2>Type</h2>
