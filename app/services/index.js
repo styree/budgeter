@@ -14,6 +14,7 @@ const getData = () => {
 };
 
 const postData = (data) => {
+	data._id = Math.floor(Math.random() * 10000);
 	console.log('POST', data);
 	fetch('http://localhost:3000/log', {
 		method: 'POST',

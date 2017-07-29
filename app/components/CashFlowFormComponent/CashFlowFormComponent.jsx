@@ -14,7 +14,7 @@ export default class CashFlowFormComponent extends React.Component {
 		super(props);
 		this.state = {
 			date: new Date(),
-			amount: 0.00,
+			amount: undefined,
 			description: '',
 			location: '',
 			type: 'out',
@@ -28,11 +28,17 @@ export default class CashFlowFormComponent extends React.Component {
 
 		this.handleFormChange = this.handleFormChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleDateChange = this.handleDateChange.bind(this);
 	}
 
 	handleFormChange ({ target }) {
 		this.setState({ [target.name]: target.value });
 		console.log(this.state);
+	}
+
+	handleDateChange (empty, date) {
+		this.setState({ date });
+		console.log(date);
 	}
 
 	handleSubmit () {
@@ -41,6 +47,7 @@ export default class CashFlowFormComponent extends React.Component {
 	}
 
 	render () {
+		apiService.getData();
 		return (
 			<div className="cashflow-form">
 				<h2>Amount</h2>
@@ -68,9 +75,10 @@ export default class CashFlowFormComponent extends React.Component {
 				<h2>Date</h2>
 				<DatePicker
 					hintText="Portrait Dialog"
-					defaultDate={new Date()}
 					name="date"
 					value={this.state.date}
+					disableYearSelection={true}
+					onChange={this.handleDateChange}
 				/>
 
 				<h2>Type</h2>
