@@ -25,7 +25,8 @@ export default class App extends React.Component {
 				<div>
 					<AppBar
 						title="Hello World!"
-						onLeftIconButtonTouchTap={this.toggleSidebar}/>
+						onLeftIconButtonTouchTap={this.toggleSidebar}
+						style={{ backgroundColor: '#519548' }}/>
 					<div className="content-wrapper">
 						<CashFlowFormComponent/>
 					</div>

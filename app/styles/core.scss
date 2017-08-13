@@ -1,12 +1,56 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans');
 
+$green: #519548;
+$lime: #88C425;
+$black: #4C555B;
+
 body {
-	margin: 0;
-	font-family: 'Fira Sans', sans-serif;
+    margin: 0;
+    font-family: 'Fira Sans', sans-serif;
+    color: $black;
+    background-color: #FCFDFF;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .content-wrapper {
-	max-width: 1000px;
-	margin: 0 auto;
-	padding-bottom: 25px
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 25px
 }
+
+.row {
+    flex-direction: row;
+    display: flex;
+}
+
+.column {
+    flex-direction: column;
+    display: flex;
+}
+
+.cashflow {
+    &__ammount-wrap {
+        width: 50%;
+        padding-right: 20px;
+    }
+}
+
+.card {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    margin: 20px;
+    padding: 20px;
+    background-color: white;
+
+    h2 {
+        margin: 0;
+        font-weigth: 100;
+        color: $green;
+    }
+}
+
+@import '../components/components';

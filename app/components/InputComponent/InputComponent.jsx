@@ -21,6 +21,7 @@ export default class InputComponent extends React.Component {
 						type={type || 'text'}
 						placeholder={this.props.placeholder}
 						style={style}
+						step=".01"
 						{...this.props}
 					/>
 				</Paper>

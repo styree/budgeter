@@ -1,10 +1,10 @@
 import React from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import { RadioButton, RadioButtonGroup } from 'material-ui/RadioButton';
 import DatePicker from 'material-ui/DatePicker';
 import InputComponent from '../InputComponent';
 import TagsComponent from '../TagsComponent';
+import CurrencyInput from '../CurrencyInput';
 import apiService from '../../services';
 
 injectTapEventPlugin();
@@ -50,53 +50,37 @@ export default class CashFlowFormComponent extends React.Component {
 		apiService.getData();
 		return (
 			<div className="cashflow-form">
-				<h2>Amount</h2>
-				<InputComponent
-					placeholder="$0.00"
-					value={this.state.amount}
-					type="number"
-					name="amount"
-					onChange={this.handleFormChange}/>
 
-				<h2>Description</h2>
-				<InputComponent
-					placeholder="Description"
-					value={this.state.description}
-					name="description"
-					onChange={this.handleFormChange}/>
+				<div className="row">
+					<div className="cashflow__ammount-wrap">
+						<CurrencyInput
+							onChange={this.handleFormChange}
+							value={this.state.amount}/>
+					</div>
 
-				<h2>Location</h2>
-				<InputComponent
-					placeholder="Location"
-					value={this.state.location}
-					name="location"
-					onChange={this.handleFormChange}/>
+					<div className="column input-details card">
+						<h2>Transaction Details</h2>
+						<DatePicker
+							hintText="Portrait Dialog"
+							name="date"
+							value={this.state.date}
+							disableYearSelection={true}
+							onChange={this.handleDateChange}
+						/>
 
-				<h2>Date</h2>
-				<DatePicker
-					hintText="Portrait Dialog"
-					name="date"
-					value={this.state.date}
-					disableYearSelection={true}
-					onChange={this.handleDateChange}
-				/>
+						<InputComponent
+							placeholder="Location"
+							value={this.state.location}
+							name="location"
+							onChange={this.handleFormChange}/>
 
-				<h2>Type</h2>
-				<RadioButtonGroup
-					name="type"
-					labelPosition="right"
-					defaultSelected="out"
-					value={this.state.type}
-					onChange={this.handleFormChange}>
-					<RadioButton
-						value="out"
-						label="Spending"
-					/>
-					<RadioButton
-						value="in"
-						label="Income"
-					/>
-				</RadioButtonGroup>
+						<InputComponent
+							placeholder="Description"
+							value={this.state.description}
+							name="description"
+							onChange={this.handleFormChange}/>
+					</div>
+				</div>
 
 				<h2>Tags</h2>
 				<TagsComponent/>
